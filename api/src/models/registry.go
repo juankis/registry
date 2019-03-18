@@ -7,5 +7,5 @@ type Registry struct {
 	Email        string `json:"email" db:"email" binding:"required"`
 	Cel          string `json:"cel" db:"cel"`
 	TypeCustomer int    `json:"type_customer" db:"type_customer" binding:"required"`
-	CreatedAt    string `json:"created_at" db:"created_at"`
+	CreatedAt    string `json:"created_at,omitempty" db:"created_at"`
 }

@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `registry`.`registry` (
   `email` VARCHAR(300) NULL,
   `cel` VARCHAR(15) NULL,
   `type_customer` TINYINT NULL,
-  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP(),
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
