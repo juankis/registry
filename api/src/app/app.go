@@ -1,6 +1,9 @@
 package app
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/juankis/registry/api/src/controllers"
+)
 
 //Start function to start up proyect
 func Start() {
@@ -10,5 +13,6 @@ func Start() {
 			"message": "pong",
 		})
 	})
+	r.POST("/registry", controllers.InsertRegistry)
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
