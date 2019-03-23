@@ -11,7 +11,7 @@ const (
 	TEST            string = "test"
 	DEVELOP         string = "develop"
 	SCOPE_METRICS   string = "scope-metrics"
-	DB_DSN_TEMPLATE string = "%s:%s@tcp(%s)/watchdog"
+	DB_DSN_TEMPLATE string = "%s:%s@tcp(%s)/registry"
 )
 
 var (

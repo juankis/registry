@@ -8,7 +8,7 @@ import (
 	"github.com/jmoiron/sqlx"
 
 	//_ this library is necesary to connet with database test
-	"github.com/mercadolibre/fury_sre-watchdog-service/src/api/config"
+	"github.com/juankis/registry/api/src/config"
 )
 
 //Db is connection with de data base
@@ -20,7 +20,7 @@ func Database() *sqlx.DB {
 	dsn := fmt.Sprintf(
 		config.DB_DSN_TEMPLATE,
 		"root",
-		"root",
+		"mysql123",
 		"localhost:3306",
 	)
 	var db *sqlx.DB
