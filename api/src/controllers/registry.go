@@ -22,3 +22,14 @@ func InsertRegistry(c *gin.Context) {
 	c.JSON(201, &registry)
 	return
 }
+
+func GetRegistry(c *gin.Context) {
+	var checks []models.Registry
+	checks, err := dao.GetRegistryAll()
+	if err != nil {
+		utils.CustomResponse(c, "getting checks", err, 404)
+		return
+	}
+	c.JSON(200, checks)
+	return
+}

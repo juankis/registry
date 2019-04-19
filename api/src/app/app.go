@@ -14,5 +14,6 @@ func Start() {
 		})
 	})
 	r.POST("/registry", controllers.InsertRegistry)
+	r.POST("/registry", controllers.GetRegistry)
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
