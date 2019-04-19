@@ -1,0 +1,31 @@
+- name: create folders
+  file:
+    path: /home/ubuntu/go/src/github.com/juankis/registry
+    state: directory
+    mode: 0777
+
+- name: check go version
+  command: /usr/local/go/bin/go version
+  register: result
+  changed_when: no
+  ignore_errors: true    
+  become: true
+
+- name: install driver mysql
+  shell: "/usr/local/go/bin/go get github.com/go-sql-driver/mysql"
+  become: true
+- name: install connector mysql
+  shell: "/usr/local/go/bin/go get github.com/jmoiron/sqlx"
+  become: true
+- name: install gin
+  shell: "/usr/local/go/bin/go get github.com/gin-gonic/gin"
+  become: true
+- name: git clone registry
+  git:
+    repo: 'https://github.com/juankis/registry'
+    dest: /home/ubuntu/go/src/github.com/juankis/registry
+    clone: yes
+    update: yes
+- name: go run 
+  shell: "/usr/local/go/bin/go run /home/ubuntu/go/src/github.com/juankis/registry/api/src/main/main.go &"
+  become: true    

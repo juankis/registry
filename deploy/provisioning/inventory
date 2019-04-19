@@ -1,0 +1,5 @@
+[host]
+3.86.211.67
+[host:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=../files/registry
