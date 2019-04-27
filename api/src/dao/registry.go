@@ -8,7 +8,7 @@ import (
 
 //InsertRegistry insert
 func InsertRegistry(registry *models.Registry) error {
-	res, err := Db.NamedExec(`INSERT INTO registry (name, email, cel, type_customer) VALUES (:name, :email, :cel, :type_customer)`, &registry)
+	res, err := Db.NamedExec(`INSERT INTO registry (name, second_name, email, cel, type_customer) VALUES (:name, :second_name, :email, :cel, :type_customer)`, &registry)
 	if err != nil {
 		fmt.Errorf(fmt.Sprintf("Error inserting registry to the database, registry: %v\n", registry), err, nil)
 		return err

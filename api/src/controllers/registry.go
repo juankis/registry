@@ -8,12 +8,13 @@ import (
 )
 
 func InsertRegistry(c *gin.Context) {
-	var registry models.Registry
-	err := c.ShouldBindJSON(&registry)
+	var reg models.Response
+	err := c.ShouldBindJSON(&reg)
 	if err != nil {
 		utils.InvalidJSON(c, err)
 		return
 	}
+	registry := reg.Data
 	err = dao.InsertRegistry(&registry)
 	if err != nil {
 		utils.InvalidJSON(c, err)
