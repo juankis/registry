@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/juankis/registry/api/src/models"
-	"github.com/mercadolibre/goutils/logger"
 )
 
 //InsertRegistry insert
@@ -19,13 +18,13 @@ func InsertRegistry(registry *models.Registry) error {
 	return nil
 }
 
-//GetRegistryAll Returns error and checks if exist
-func GetRegistryAll() ([]models.Check, error) {
-	var checks []models.Check
-	err := Db.Select(&checks, "SELECT * FROM `registry` ORDER BY id ASC")
+//GetRegistryAll Returns error and registry if exist
+func GetRegistryAll() ([]models.Registry, error) {
+	var registry []models.Registry
+	err := Db.Select(&registry, "SELECT * FROM `registry` ORDER BY id ASC")
 	if err != nil {
-		logger.Errorf("Error getting registry from database", err, nil)
-		return checks, err
+		fmt.Errorf("Error getting registry from database %v \n", err)
+		return registry, err
 	}
-	return checks, nil
+	return registry, nil
 }
