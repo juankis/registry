@@ -21,7 +21,7 @@ func Database() *sqlx.DB {
 		config.DB_DSN_TEMPLATE,
 		"root",
 		"mysql123",
-		"localhost:3306",
+		"registry.cjdmlyuutrqv.us-east-1.rds.amazonaws.com:3306",
 	)
 	var db *sqlx.DB
 	var err error
