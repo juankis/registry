@@ -1,9 +1,9 @@
 ---
 - hosts: all
-  become: true
   vars:
     ansible_python_interpreter: "/usr/bin/env python3"
   roles:
-    - ansible-go-master
+    - update
+    - andrewrothstein.go
     - api
     
