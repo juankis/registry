@@ -14,6 +14,9 @@ func Start() {
 		})
 	})
 	r.POST("/registry", controllers.InsertRegistry)
-	r.GET("/registry", controllers.GetRegistry)
+	r.GET("/registry", controllers.GetRegistryAll)
+	r.GET("/registry/:id/", controllers.GetRegistry)
+	r.DELETE("/registry/:id/", controllers.DeleteRegistry)
+	r.PUT("/registry/:id/", controllers.PutRegistry)
 	r.Run(":8080") // listen and serve on 0.0.0.0:8080
 }
